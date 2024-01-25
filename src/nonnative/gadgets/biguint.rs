@@ -469,11 +469,11 @@ impl<F: RichField + Extendable<D>, const D: usize> SimpleGenerator<F, D>
         out_buffer.set_biguint_target(&self.rem, &rem);
     }
 
-    fn serialize(&self, _dst: &mut Vec<u8>, c: &CommonCircuitData<F, D>) -> IoResult<()> {
+    fn serialize(&self, _dst: &mut Vec<u8>, _c: &CommonCircuitData<F, D>) -> IoResult<()> {
         todo!()
     }
 
-    fn deserialize(_src: &mut Buffer, c: &CommonCircuitData<F, D>) -> IoResult<Self>
+    fn deserialize(_src: &mut Buffer, _c: &CommonCircuitData<F, D>) -> IoResult<Self>
     where
         Self: Sized,
     {
