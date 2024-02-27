@@ -7,8 +7,8 @@ edition = "2021"
 
 [dependencies]
 anyhow = { version = "1.0.40", default-features = false }
-plonky2 = "0.1"
-plonky2_maybe_rayon = { version = "0.1" }
+plonky2 = "0.2"
+plonky2_maybe_rayon = { version = "0.2" }
 itertools = "0.10.5"
 num = { version = "0.4.0", default-features = false }
 serde = "1.0.152"
