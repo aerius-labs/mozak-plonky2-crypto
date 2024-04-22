@@ -17,7 +17,6 @@ use plonky2::iop::witness::{PartitionWitness, Witness, WitnessWrite};
 use plonky2::plonk::circuit_builder::CircuitBuilder;
 use plonky2::plonk::circuit_data::{CircuitConfig, CommonCircuitData};
 use plonky2::plonk::vars::{EvaluationTargets, EvaluationVars, EvaluationVarsBase};
-use plonky2::util::ceil_div_usize;
 use plonky2::util::serialization::{Buffer, IoResult};
 
 const LOG2_MAX_NUM_ADDENDS: usize = 4;
@@ -70,10 +69,10 @@ impl<F: RichField + Extendable<D>, const D: usize> U32AddManyGate<F, D> {
         2
     }
     pub fn num_result_limbs() -> usize {
-        ceil_div_usize(32, Self::limb_bits())
+        32_usize.div_ceil(Self::limb_bits())
     }
     pub fn num_carry_limbs() -> usize {
-        ceil_div_usize(LOG2_MAX_NUM_ADDENDS, Self::limb_bits())
+        LOG2_MAX_NUM_ADDENDS.div_ceil(Self::limb_bits())
     }
     pub fn num_limbs() -> usize {
         Self::num_result_limbs() + Self::num_carry_limbs()

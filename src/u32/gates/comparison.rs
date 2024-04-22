@@ -22,8 +22,8 @@ use plonky2::plonk::vars::{
     EvaluationTargets, EvaluationVars, EvaluationVarsBase, EvaluationVarsBaseBatch,
     EvaluationVarsBasePacked,
 };
+use plonky2::util::bits_u64;
 use plonky2::util::serialization::{Buffer, IoResult};
-use plonky2::util::{bits_u64, ceil_div_usize};
 
 /// A gate for checking that one value is less than or equal to another.
 #[derive(Clone, Debug)]
@@ -44,7 +44,7 @@ impl<F: RichField + Extendable<D>, const D: usize> ComparisonGate<F, D> {
     }
 
     pub fn chunk_bits(&self) -> usize {
-        ceil_div_usize(self.num_bits, self.num_chunks)
+        self.num_bits.div_ceil(self.num_chunks)
     }
 
     pub fn wire_first_input(&self) -> usize {
