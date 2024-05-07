@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = { version = "1.0", default-features = false }
-plonky2 = { version = "0.2", default-features = false }
+plonky2 = { version = "0.2", default-features = false, features = ["gate_testing"]}
 itertools = "0.12"
 num = { version = "0.4", default-features = false }
 serde = "1.0"
